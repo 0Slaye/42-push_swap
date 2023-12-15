@@ -5,7 +5,8 @@ CFLAGS = -Wall -Werror -Wextra
 
 #Files variables
 LIBFT = sources/libft
-SRCS_FILES =	main.c
+SRCS_FILES =	main.c \
+				checkers/input.c
 SRCS = $(addprefix sources/, $(SRCS_FILES))
 OBJS = $(SRCS:.c=.o)
 INCLS = includes/
@@ -20,7 +21,7 @@ BLUE= \033[1;34m
 all : $(NAME)
 
 $(NAME) : $(OBJS)
-	@make -C $(LIBFT) --no-print-directory
+	@make bonus -C $(LIBFT) --no-print-directory
 	@$(CC) $(CFLAGS) $(OBJS) -o $(NAME) $(LIBFT)/libft.a
 	@echo "$(BOLD)[$(NAME)] Makefile : $(GREEN)Executable created successfully!$(RESET)"
 
