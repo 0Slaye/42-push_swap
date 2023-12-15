@@ -6,7 +6,7 @@
 /*   By: uwywijas <uwywijas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 15:46:14 by uwywijas          #+#    #+#             */
-/*   Updated: 2023/12/15 16:18:51 by uwywijas         ###   ########.fr       */
+/*   Updated: 2023/12/15 16:25:46 by uwywijas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,9 @@ int is_tab_valid(char **tab, int length)
 		j = -1;
 		while (++j < (int) ft_strlen(tab[i]))
 		{
-			if (!ft_isdigit(tab[i][j]))
+			if (j == 0 && tab[i][j] == '-')
+				continue;
+			else if (j != 0 && !ft_isdigit(tab[i][j]))
 				return (0);
 		}
 	}
