@@ -6,7 +6,7 @@
 /*   By: uwywijas <uwywijas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 15:46:14 by uwywijas          #+#    #+#             */
-/*   Updated: 2023/12/15 16:25:46 by uwywijas         ###   ########.fr       */
+/*   Updated: 2023/12/18 15:01:19 by uwywijas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ int is_tab_unique(char **tab, int length)
 {
 	int	i;
 	int	j;
+	int	holder;
 
 	i = -1;
 	while (++i < length)
@@ -33,7 +34,13 @@ int is_tab_unique(char **tab, int length)
 		j = -1;
 		while (++j < length)
 		{
-			if (j != i && ft_strncmp(tab[i], tab[j], ft_strlen(tab[i])) == 0)
+			if (tab[i][0] == '+' && ft_strlen(tab[i]) > 1)
+				tab[i] = &tab[i][1];
+			if (ft_strlen(tab[i]) >= ft_strlen(tab[j]))
+				holder = ft_strlen(tab[i]);
+			else
+				holder = ft_strlen(tab[j]);
+			if (j != i && ft_strncmp(tab[i], tab[j], holder) == 0)
 				return (0);
 		}
 	}
@@ -51,9 +58,9 @@ int is_tab_valid(char **tab, int length)
 		j = -1;
 		while (++j < (int) ft_strlen(tab[i]))
 		{
-			if (j == 0 && tab[i][j] == '-')
+			if (j == 0 && (tab[i][j] == '-' || tab[i][j] == '+'))
 				continue;
-			else if (j != 0 && !ft_isdigit(tab[i][j]))
+			else if (!ft_isdigit(tab[i][j]))
 				return (0);
 		}
 	}
