@@ -6,16 +6,15 @@
 /*   By: uwywijas <uwywijas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/04 14:09:43 by uwywijas          #+#    #+#             */
-/*   Updated: 2023/12/08 17:08:20 by uwywijas         ###   ########.fr       */
+/*   Updated: 2023/12/19 16:44:44 by uwywijas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstdelone(t_list *lst, void (*del)(void*))
+void	ft_lstdelone(t_list *lst)
 {
-	if (lst == NULL || del == NULL)
+	if (lst == NULL)
 		return ((void) NULL);
-	(*del)(lst->content);
 	free(lst);
 }
