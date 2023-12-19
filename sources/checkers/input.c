@@ -6,11 +6,12 @@
 /*   By: uwywijas <uwywijas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 15:46:14 by uwywijas          #+#    #+#             */
-/*   Updated: 2023/12/18 15:01:19 by uwywijas         ###   ########.fr       */
+/*   Updated: 2023/12/19 17:09:45 by uwywijas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/imports.h"
+#include "../../includes/commons.h"
 
 int	get_tab_length(char **tab)
 {
@@ -22,7 +23,20 @@ int	get_tab_length(char **tab)
 	return (i);
 }
 
-int is_tab_unique(char **tab, int length)
+int	is_tab_int(char **tab, int length)
+{
+	int	i;
+
+	i = -1;
+	while (++i < length)
+	{
+		if (ft_atol(tab[i]) > INT_MAX || ft_atol(tab[i]) < INT_MIN)
+			return (0);
+	}
+	return (1);
+}
+
+int	is_tab_unique(char **tab, int length)
 {
 	int	i;
 	int	j;
@@ -47,7 +61,7 @@ int is_tab_unique(char **tab, int length)
 	return (1);
 }
 
-int is_tab_valid(char **tab, int length)
+int	is_tab_valid(char **tab, int length)
 {
 	int		i;
 	int		j;
@@ -59,12 +73,14 @@ int is_tab_valid(char **tab, int length)
 		while (++j < (int) ft_strlen(tab[i]))
 		{
 			if (j == 0 && (tab[i][j] == '-' || tab[i][j] == '+'))
-				continue;
+				continue ;
 			else if (!ft_isdigit(tab[i][j]))
 				return (0);
 		}
 	}
 	if (!is_tab_unique(tab, length))
+		return (0);
+	if (!is_tab_int(tab, length))
 		return (0);
 	return (1);
 }
