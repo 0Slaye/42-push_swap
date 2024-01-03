@@ -6,7 +6,7 @@
 /*   By: uwywijas <uwywijas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 14:44:46 by uwywijas          #+#    #+#             */
-/*   Updated: 2023/12/19 17:09:27 by uwywijas         ###   ########.fr       */
+/*   Updated: 2024/01/03 15:34:49 by uwywijas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,22 +16,23 @@
 void	push_swap(char **tab, int length)
 {
 	int		i;
-	t_list	**stack_a;
-	t_list	**stack_b;
+	t_list	*stack_a;
+	t_list	*stack_b;
+	t_list	*holder;
 
-	stack_a = malloc(sizeof(t_list **));
-	stack_b = malloc(sizeof(t_list **));
+	stack_a = ft_lstnew(ft_atoi(tab[0]));
+	stack_b = malloc(sizeof(t_list *));
 	if (stack_a == NULL)
 		exit(EXIT_FAILURE);
 	if (stack_b == NULL)
-		exit(EXIT_FAILURE);
+		return (free(stack_a), exit(EXIT_FAILURE));
 	i = -1;
 	while (++i < length)
 	{
-		stack_a[i] = ft_lstnew(ft_atoi(tab[i]));
-		printf("| %d |\n", stack_a[i]->content);
-		if (stack_a[i] == NULL)
-			return (ft_lstclear(stack_a), free(stack_a));
+		holder = ft_lstnew(ft_atoi(tab[i]));
+		if (holder == NULL)
+			return (ft_lstclear(&stack_a), free(stack_a), free(stack_b));
+		ft_lstadd_back(&stack_a, holder);
 	}
 }
 
