@@ -1,29 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstclear_bonus.c                                :+:      :+:    :+:   */
+/*   ss.c                                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: uwywijas <uwywijas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/04 14:15:27 by uwywijas          #+#    #+#             */
-/*   Updated: 2024/01/03 16:39:34 by uwywijas         ###   ########.fr       */
+/*   Created: 2024/01/03 15:38:26 by uwywijas          #+#    #+#             */
+/*   Updated: 2024/01/03 15:47:20 by uwywijas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-#include <stdio.h>
+#include "../../includes/commons.h"
+#include "../../includes/operations.h"
+#include "../../includes/imports.h"
 
-void	ft_lstclear(t_list **lst)
+void	ss(t_list *stack_a, t_list *stack_b)
 {
-	t_list	*holder;
-
-	if (lst == NULL)
-		return ((void) NULL);
-	while (*lst)
-	{
-		holder = (*lst)->next;
-		ft_lstdelone(*lst);
-		*lst = holder;
-	}
-	*lst = NULL;
+	sa(stack_a);
+	sb(stack_b);
 }
