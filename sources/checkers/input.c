@@ -6,7 +6,7 @@
 /*   By: uwywijas <uwywijas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 15:46:14 by uwywijas          #+#    #+#             */
-/*   Updated: 2024/01/03 15:01:58 by uwywijas         ###   ########.fr       */
+/*   Updated: 2024/01/03 15:44:02 by uwywijas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,8 @@ int	is_tab_int(char **tab, int length)
 	i = -1;
 	while (++i < length)
 	{
-		if (ft_atol(tab[i]) > INT_MAX || ft_atol(tab[i]) < INT_MIN || ft_strlen(tab[i]) >= 12)
+		if (ft_atol(tab[i]) > INT_MAX || ft_atol(tab[i]) < INT_MIN \
+		|| ft_strlen(tab[i]) >= 12)
 			return (0);
 	}
 	return (1);
