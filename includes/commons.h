@@ -6,7 +6,7 @@
 /*   By: uwywijas <uwywijas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 15:50:45 by uwywijas          #+#    #+#             */
-/*   Updated: 2023/12/19 17:09:10 by uwywijas         ###   ########.fr       */
+/*   Updated: 2024/01/05 15:16:19 by uwywijas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 
 # define INT_MAX 2147483647
 # define INT_MIN -2147483648
+
+# include "imports.h"
 
 int		get_tab_length(char **tab);
 int		is_tab_valid(char **tab, int length);

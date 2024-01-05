@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sb.c                                               :+:      :+:    :+:   */
+/*   rrr.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: uwywijas <uwywijas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 15:38:26 by uwywijas          #+#    #+#             */
-/*   Updated: 2024/01/05 16:29:58 by uwywijas         ###   ########.fr       */
+/*   Updated: 2024/01/05 16:48:46 by uwywijas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,8 @@
 #include "../../includes/operations.h"
 #include "../../includes/imports.h"
 
-void	sb(t_list **stack_b)
+void	rrr(t_list **stack_a, t_list **stack_b)
 {
-	t_list	*holder;
-	t_list	*third;
-
-	if (*stack_b == NULL || (*stack_b)->next == NULL)
-		return ;
-	holder = *stack_b;
-	third = (*stack_b)->next->next;
-	*stack_b = (*stack_b)->next;
-	(*stack_b)->next = holder;
-	(*stack_b)->next->next = third;
+	rra(stack_a);
+	rrb(stack_b);
 }

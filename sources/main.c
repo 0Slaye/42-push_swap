@@ -6,12 +6,13 @@
 /*   By: uwywijas <uwywijas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 14:44:46 by uwywijas          #+#    #+#             */
-/*   Updated: 2024/01/03 16:46:51 by uwywijas         ###   ########.fr       */
+/*   Updated: 2024/01/05 16:53:11 by uwywijas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/imports.h"
 #include "../includes/commons.h"
+#include "../includes/operations.h"
 
 void	push_swap(char **tab, int length)
 {

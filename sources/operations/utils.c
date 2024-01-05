@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sb.c                                               :+:      :+:    :+:   */
+/*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: uwywijas <uwywijas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/03 15:38:26 by uwywijas          #+#    #+#             */
-/*   Updated: 2024/01/05 16:29:58 by uwywijas         ###   ########.fr       */
+/*   Created: 2024/01/05 16:47:05 by uwywijas          #+#    #+#             */
+/*   Updated: 2024/01/05 16:47:13 by uwywijas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,11 @@
 #include "../../includes/operations.h"
 #include "../../includes/imports.h"
 
-void	sb(t_list **stack_b)
+t_list	*ft_lst_prevlast(t_list *lst)
 {
-	t_list	*holder;
-	t_list	*third;
-
-	if (*stack_b == NULL || (*stack_b)->next == NULL)
-		return ;
-	holder = *stack_b;
-	third = (*stack_b)->next->next;
-	*stack_b = (*stack_b)->next;
-	(*stack_b)->next = holder;
-	(*stack_b)->next->next = third;
+	if (!lst)
+		return (NULL);
+	while (lst->next->next != NULL)
+		lst = lst->next;
+	return (lst);
 }

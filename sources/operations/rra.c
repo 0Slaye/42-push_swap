@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sb.c                                               :+:      :+:    :+:   */
+/*   rra.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: uwywijas <uwywijas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/03 15:38:26 by uwywijas          #+#    #+#             */
-/*   Updated: 2024/01/05 16:29:58 by uwywijas         ###   ########.fr       */
+/*   Created: 2024/01/03 15:56:36 by uwywijas          #+#    #+#             */
+/*   Updated: 2024/01/05 16:48:13 by uwywijas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,14 @@
 #include "../../includes/operations.h"
 #include "../../includes/imports.h"
 
-void	sb(t_list **stack_b)
+void	rra(t_list **stack_a)
 {
 	t_list	*holder;
-	t_list	*third;
+	t_list	*prevlast;
 
-	if (*stack_b == NULL || (*stack_b)->next == NULL)
-		return ;
-	holder = *stack_b;
-	third = (*stack_b)->next->next;
-	*stack_b = (*stack_b)->next;
-	(*stack_b)->next = holder;
-	(*stack_b)->next->next = third;
+	holder = ft_lstlast(*stack_a);
+	prevlast = ft_lst_prevlast(*stack_a);
+	holder->next = *stack_a;
+	*stack_a = holder;
+	prevlast->next = NULL;
 }

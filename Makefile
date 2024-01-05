@@ -6,7 +6,19 @@ CFLAGS = -Wall -Werror -Wextra
 #Files variables
 LIBFT = sources/libft
 SRCS_FILES =	main.c \
-				checkers/input.c
+				checkers/input.c \
+				operations/utils.c \
+				operations/sa.c \
+				operations/sb.c \
+				operations/ss.c \
+				operations/pa.c \
+				operations/pb.c \
+				operations/ra.c \
+				operations/rb.c \
+				operations/rr.c \
+				operations/rra.c \
+				operations/rrb.c \
+				operations/rrr.c
 SRCS = $(addprefix sources/, $(SRCS_FILES))
 OBJS = $(SRCS:.c=.o)
 INCLS = includes/
