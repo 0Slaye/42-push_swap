@@ -6,7 +6,7 @@
 /*   By: uwywijas <uwywijas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/19 16:32:59 by uwywijas          #+#    #+#             */
-/*   Updated: 2024/01/06 16:36:04 by uwywijas         ###   ########.fr       */
+/*   Updated: 2024/01/06 16:46:08 by uwywijas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,8 +41,13 @@ void	quick_sort(t_list **stack_a, t_list **stack_b)
 {
 	t_list	*holder;
 
-	holder = get_min(stack_a);
-	while (*stack_a != holder)
-		ra(stack_a);
-	pb(stack_a, stack_b);
+	while (*stack_a)
+	{
+		holder = get_min(stack_a);
+		while (*stack_a != holder)
+			ra(stack_a);
+		pb(stack_a, stack_b);
+	}
+	while (*stack_b)
+		pa(stack_a, stack_b);
 }
