@@ -6,12 +6,12 @@
 /*   By: uwywijas <uwywijas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 15:45:16 by uwywijas          #+#    #+#             */
-/*   Updated: 2024/01/05 16:49:06 by uwywijas         ###   ########.fr       */
+/*   Updated: 2024/01/06 15:35:21 by uwywijas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef OPERATION_H
-# define OPERATION_H
+#ifndef OPERATIONS_H
+# define OPERATIONS_H
 
 t_list		*ft_lst_prevlast(t_list *lst);
 void		sa(t_list **stack_a);

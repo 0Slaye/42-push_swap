@@ -6,7 +6,7 @@
 /*   By: uwywijas <uwywijas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 14:44:46 by uwywijas          #+#    #+#             */
-/*   Updated: 2024/01/05 16:53:11 by uwywijas         ###   ########.fr       */
+/*   Updated: 2024/01/06 15:32:45 by uwywijas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	push_swap(char **tab, int length)
 	stack_a = malloc(sizeof(t_list **));
 	stack_b = malloc(sizeof(t_list **));
 	if (stack_a == NULL)
-		exit(EXIT_FAILURE);
+		return (free(stack_b), exit(EXIT_FAILURE));
 	if (stack_b == NULL)
 		return (free(stack_a), exit(EXIT_FAILURE));
 	*stack_a = NULL;
