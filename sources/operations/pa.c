@@ -6,7 +6,7 @@
 /*   By: uwywijas <uwywijas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 15:47:39 by uwywijas          #+#    #+#             */
-/*   Updated: 2024/01/06 15:34:48 by uwywijas         ###   ########.fr       */
+/*   Updated: 2024/01/06 16:19:22 by uwywijas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,4 +23,5 @@ void	pa(t_list **stack_a, t_list **stack_b)
 	holder = (*stack_b)->next;
 	ft_lstadd_front(stack_a, *stack_b);
 	*stack_b = holder;
+	ft_putstr_fd("pa\n", 1);
 }

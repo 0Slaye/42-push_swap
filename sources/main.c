@@ -6,7 +6,7 @@
 /*   By: uwywijas <uwywijas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 14:44:46 by uwywijas          #+#    #+#             */
-/*   Updated: 2024/01/06 15:32:45 by uwywijas         ###   ########.fr       */
+/*   Updated: 2024/01/06 16:27:41 by uwywijas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,9 @@ void	push_swap(char **tab, int length)
 			return (ft_lstclear(stack_a), free(stack_a), free(stack_b));
 		ft_lstadd_back(stack_a, holder);
 	}
-	return (ft_lstclear(stack_a), free(stack_a), free(stack_b));
+	printf("%p\n", *stack_a);
+	quick_sort(stack_a, stack_b);
+	//return (ft_lstclear(stack_a), free(stack_a), free(stack_b));
 }
 
 int	main(int argc, char **argv)

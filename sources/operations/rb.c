@@ -6,7 +6,7 @@
 /*   By: uwywijas <uwywijas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 15:56:36 by uwywijas          #+#    #+#             */
-/*   Updated: 2024/01/06 14:28:26 by uwywijas         ###   ########.fr       */
+/*   Updated: 2024/01/06 16:19:39 by uwywijas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,4 +22,5 @@ void	rb(t_list **stack_b)
 	*stack_b = (*stack_b)->next;
 	ft_lstlast(*stack_b)->next = holder;
 	holder->next = NULL;
+	ft_putstr_fd("rb\n", 1);
 }
