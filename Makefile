@@ -19,7 +19,8 @@ SRCS_FILES =	main.c \
 				operations/rra.c \
 				operations/rrb.c \
 				operations/rrr.c \
-				quick_sort/quick_sort.c
+				quick_sort/quick_sort.c \
+				quick_sort/quick_sort_utils.c
 SRCS = $(addprefix sources/, $(SRCS_FILES))
 OBJS = $(SRCS:.c=.o)
 INCLS = includes/
