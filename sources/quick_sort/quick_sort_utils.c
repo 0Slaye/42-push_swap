@@ -6,7 +6,7 @@
 /*   By: uwywijas <uwywijas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 17:03:43 by uwywijas          #+#    #+#             */
-/*   Updated: 2024/01/09 17:06:08 by uwywijas         ###   ########.fr       */
+/*   Updated: 2024/01/09 18:38:06 by uwywijas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,21 @@ int	get_app_pos(t_list **stack, t_list *item)
 	*stack = saver;
 	if (place > counter / 2)
 		return (1);
+	return (0);
+}
+
+int	lst_huv(t_list **stack, int value)
+{
+	t_list	*saver;
+
+	saver = *stack;
+	while (*stack)
+	{
+		if ((*stack)->content <= value)
+			return (*stack = saver, 1);
+		*stack = (*stack)->next;
+	}
+	*stack = saver;
 	return (0);
 }
 

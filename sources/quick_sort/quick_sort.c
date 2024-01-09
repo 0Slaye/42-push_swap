@@ -6,7 +6,7 @@
 /*   By: uwywijas <uwywijas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/19 16:32:59 by uwywijas          #+#    #+#             */
-/*   Updated: 2024/01/09 17:50:35 by uwywijas         ###   ########.fr       */
+/*   Updated: 2024/01/09 18:38:40 by uwywijas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,9 @@
 
 int	get_step(t_list **stack, int stacks)
 {
-	return ((get_max(stack)->content + (get_min(stack)->content * -1)) / stacks);
+	if (get_min(stack)->content < 0)
+		return ((get_max(stack)->content + (get_min(stack)->content * -1)) / stacks);
+	return ((get_max(stack)->content + get_min(stack)->content) / stacks);
 }
 
 void	sorter(t_list **stack_a, t_list **stack_b, t_list *max)
@@ -48,12 +50,12 @@ void	quick_sort(t_list **stack_a, t_list **stack_b)
 	while (*stack_a)
 	{
 		holder = ft_lstlast(*stack_a);
-		while (*stack_a && *stack_a != holder)
+		while (lst_huv(stack_a, starter))
 		{
 			if ((*stack_a)->content <= starter)
 				pb(stack_a, stack_b);
 			if (*stack_a == ft_lstlast(*stack_a))
-				pb(stack_a, stack_b);
+				break;
 			else
 				ra(stack_a);
 		}
