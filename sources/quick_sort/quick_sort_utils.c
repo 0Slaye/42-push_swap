@@ -6,7 +6,7 @@
 /*   By: uwywijas <uwywijas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 17:03:43 by uwywijas          #+#    #+#             */
-/*   Updated: 2024/01/09 18:38:06 by uwywijas         ###   ########.fr       */
+/*   Updated: 2024/01/10 17:23:07 by uwywijas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,4 +107,19 @@ int	counter(t_list **stack)
 	}
 	*stack = saver;
 	return (counter);
+}
+
+int	is_sorted(t_list **stack)
+{
+	t_list	*saver;
+
+	saver = *stack;
+	while ((*stack)->next)
+	{
+		if ((*stack)->content > (*stack)->next->content)
+			return (*stack = saver, 0);
+		*stack = (*stack)->next;
+	}
+	*stack = saver;
+	return (1);
 }
