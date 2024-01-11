@@ -6,7 +6,7 @@
 /*   By: uwywijas <uwywijas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/19 16:32:59 by uwywijas          #+#    #+#             */
-/*   Updated: 2024/01/11 17:42:12 by uwywijas         ###   ########.fr       */
+/*   Updated: 2024/01/11 18:09:03 by uwywijas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,48 +44,32 @@ t_list	*get_max_n1(t_list **stack)
 	return (result);
 }
 
-void	sorter(t_list **stack_a, t_list **stack_b, t_list *max, t_list *max2)
+void	big_sorter(t_list **a, t_list **b, t_list *m1, t_list *m2)
 {
-	int	is_reversed;
 	int	is_double;
 
 	is_double = 0;
-	is_reversed = get_app_pos(stack_b, max);
-	if (is_reversed)
+	while (*b != m1)
 	{
-		while (*stack_b != max)
+		if (*b == m2)
 		{
-			if (*stack_b == max2)
-			{
-				pa(stack_a, stack_b);
-				is_double = 1;
-			}
-			else
-				rrb(stack_b);
+			pa(a, b);
+			is_double = 1;
 		}
+		else if (get_app_pos(b, m1))
+			rrb(b);
+		else
+			rb(b);
 	}
-	else
-	{
-		while (*stack_b != max)
-		{
-			if (*stack_b == max2)
-			{
-				pa(stack_a, stack_b);
-				is_double = 1;
-			}
-			else
-				rb(stack_b);
-		}
-	}
-	pa(stack_a, stack_b);
+	pa(a, b);
 	if (is_double)
 	{
-		if (!*stack_b)
-			sa(stack_a);
-		else if ((*stack_b)->next && (*stack_b)->content < (*stack_b)->next->content)
-			ss(stack_a, stack_b);
+		if (!*b)
+			sa(a);
+		else if ((*b)->next && (*b)->content < (*b)->next->content)
+			ss(a, b);
 		else
-			sa(stack_a);
+			sa(a);
 	}
 }
 
@@ -95,7 +79,7 @@ void	quick_sort(t_list **stack_a, t_list **stack_b)
 	int		stepper;
 	int		starter;
 
-	stepper = get_step(stack_a, 1); // 100 = 6 / 500 = 10 / 5 = 1
+	stepper = get_step(stack_a, 6); // 100 = 6 / 500 = 10 / 5 = 1
 	starter = get_min(stack_a)->content + stepper;
 	holder = get_max(stack_a);
 	if (is_sorted(stack_a))
@@ -123,6 +107,6 @@ void	quick_sort(t_list **stack_a, t_list **stack_b)
 	while (*stack_b)
 	{
 		holder = get_max(stack_b);
-		sorter(stack_a, stack_b, holder, get_max_n1(stack_b));
+		big_sorter(stack_a, stack_b, holder, get_max_n1(stack_b));
 	}
 }
