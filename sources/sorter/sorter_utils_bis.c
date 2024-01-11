@@ -6,7 +6,7 @@
 /*   By: uwywijas <uwywijas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 17:03:43 by uwywijas          #+#    #+#             */
-/*   Updated: 2024/01/11 19:07:24 by uwywijas         ###   ########.fr       */
+/*   Updated: 2024/01/11 19:12:00 by uwywijas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,4 +63,3 @@ int	get_stacks(t_list **stack_a)
 	else
 		return (counter(stack_a) / 20);
 }
-
