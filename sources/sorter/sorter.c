@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   quick_sort.c                                       :+:      :+:    :+:   */
+/*   sorter.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: uwywijas <uwywijas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/19 16:32:59 by uwywijas          #+#    #+#             */
-/*   Updated: 2024/01/11 18:09:03 by uwywijas         ###   ########.fr       */
+/*   Updated: 2024/01/11 18:18:24 by uwywijas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,8 @@
 int	get_step(t_list **stack, int stacks)
 {
 	if (get_min(stack)->content < 0)
-		return ((get_max(stack)->content + (get_min(stack)->content * -1)) / stacks);
+		return ((get_max(stack)->content + (get_min(stack)->content * -1)) \
+	/ stacks);
 	return ((get_max(stack)->content + get_min(stack)->content) / stacks);
 }
 
@@ -42,6 +43,35 @@ t_list	*get_max_n1(t_list **stack)
 	}
 	*stack = saver;
 	return (result);
+}
+
+void	small_sorter(t_list **a, t_list **b, t_list *holder, int n)
+{
+	int		p;
+	int		s;
+
+	p = get_step(a, n);
+	s = get_min(a)->content + p;
+	while (counter(a) != 1)
+	{
+		while (lst_huv(a, holder, s) && counter(a) != 1)
+		{
+			if ((*a)->content <= s && *a != holder)
+			{
+				pb(a, b);
+				if ((*b)->content < s - (p / 2) && (*b)->next)
+				{
+					if ((*a)->next && !((*a)->content <= s && *a != holder))
+						rr(a, b);
+					else
+						rb(b);
+				}
+			}
+			else
+				ra(a);
+		}
+		s += p;
+	}
 }
 
 void	big_sorter(t_list **a, t_list **b, t_list *m1, t_list *m2)
@@ -73,37 +103,14 @@ void	big_sorter(t_list **a, t_list **b, t_list *m1, t_list *m2)
 	}
 }
 
-void	quick_sort(t_list **stack_a, t_list **stack_b)
+void	sorter(t_list **stack_a, t_list **stack_b)
 {
 	t_list	*holder;
-	int		stepper;
-	int		starter;
 
-	stepper = get_step(stack_a, 6); // 100 = 6 / 500 = 10 / 5 = 1
-	starter = get_min(stack_a)->content + stepper;
 	holder = get_max(stack_a);
 	if (is_sorted(stack_a))
 		return ;
-	while (counter(stack_a) != 1)
-	{
-		while (lst_huv(stack_a, holder, starter) && counter(stack_a) != 1)
-		{
-			if ((*stack_a)->content <= starter && *stack_a != holder)
-			{
-				pb(stack_a, stack_b);
-				if ((*stack_b)->content < starter - (stepper / 2) && (*stack_b)->next)
-				{
-					if ((*stack_a)->next && !((*stack_a)->content <= starter && *stack_a != holder))
-						rr(stack_a, stack_b);
-					else
-						rb(stack_b);
-				}
-			}
-			else
-				ra(stack_a);
-		}
-		starter += stepper;
-	}
+	small_sorter(stack_a, stack_b, holder, 6);
 	while (*stack_b)
 	{
 		holder = get_max(stack_b);
