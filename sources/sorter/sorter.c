@@ -6,7 +6,7 @@
 /*   By: uwywijas <uwywijas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/19 16:32:59 by uwywijas          #+#    #+#             */
-/*   Updated: 2024/01/11 18:18:24 by uwywijas         ###   ########.fr       */
+/*   Updated: 2024/01/11 18:54:59 by uwywijas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,7 +110,9 @@ void	sorter(t_list **stack_a, t_list **stack_b)
 	holder = get_max(stack_a);
 	if (is_sorted(stack_a))
 		return ;
-	small_sorter(stack_a, stack_b, holder, 6);
+	if (counter(stack_a) == 3)
+		return (triple_sorter(stack_a));
+	small_sorter(stack_a, stack_b, holder, 10);
 	while (*stack_b)
 	{
 		holder = get_max(stack_b);

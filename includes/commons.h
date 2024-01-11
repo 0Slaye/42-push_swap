@@ -6,7 +6,7 @@
 /*   By: uwywijas <uwywijas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 15:50:45 by uwywijas          #+#    #+#             */
-/*   Updated: 2024/01/11 18:18:13 by uwywijas         ###   ########.fr       */
+/*   Updated: 2024/01/11 18:24:46 by uwywijas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,5 +27,6 @@ int		get_app_pos(t_list **stack, t_list *item);
 int		lst_huv(t_list **stack, t_list *max, int value);
 int		counter(t_list **stack);
 int		is_sorted(t_list **stack);
+void	triple_sorter(t_list **stack_a);
 
 #endif
