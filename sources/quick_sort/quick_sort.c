@@ -6,7 +6,7 @@
 /*   By: uwywijas <uwywijas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/19 16:32:59 by uwywijas          #+#    #+#             */
-/*   Updated: 2024/01/11 14:47:23 by uwywijas         ###   ########.fr       */
+/*   Updated: 2024/01/11 15:00:49 by uwywijas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,15 +45,14 @@ void	quick_sort(t_list **stack_a, t_list **stack_b)
 	int		stepper;
 	int		starter;
 
-	stepper = get_step(stack_a, 1); // 100 = 6 / 500 = 14 / 5 = 1
+	stepper = get_step(stack_a, 6); // 100 = 6 / 500 = 14 / 5 = 1
 	starter = get_min(stack_a)->content + stepper;
 	holder = get_max(stack_a);
 	if (is_sorted(stack_a))
 		return ;
 	while (counter(stack_a) != 1)
 	{
-		printf("%d\n", lst_huv(stack_a, starter));
-		while (lst_huv(stack_a, starter) && counter(stack_a) != 1)
+		while (lst_huv(stack_a, holder, starter) && counter(stack_a) != 1)
 		{
 			if ((*stack_a)->content <= starter && *stack_a != holder)
 				pb(stack_a, stack_b);
