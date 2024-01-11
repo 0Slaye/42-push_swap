@@ -6,7 +6,7 @@
 /*   By: uwywijas <uwywijas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 17:03:43 by uwywijas          #+#    #+#             */
-/*   Updated: 2024/01/11 19:03:40 by uwywijas         ###   ########.fr       */
+/*   Updated: 2024/01/11 19:07:24 by uwywijas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,3 +49,18 @@ void	triple_sorter(t_list **stack_a)
 			return (ra(stack_a));
 	}
 }
+
+int	get_stacks(t_list **stack_a)
+{
+	if (counter(stack_a) < 25)
+		return (1);
+	else if (counter(stack_a) < 50)
+		return (2);
+	else if (counter(stack_a) == 100)
+		return (6);
+	else if (counter(stack_a) == 500)
+		return (10);
+	else
+		return (counter(stack_a) / 20);
+}
+
