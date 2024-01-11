@@ -6,7 +6,7 @@
 /*   By: uwywijas <uwywijas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 17:03:43 by uwywijas          #+#    #+#             */
-/*   Updated: 2024/01/10 17:23:07 by uwywijas         ###   ########.fr       */
+/*   Updated: 2024/01/11 14:31:54 by uwywijas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ int	lst_huv(t_list **stack, int value)
 	saver = *stack;
 	while (*stack)
 	{
-		if ((*stack)->content <= value)
+		if ((*stack)->content <= value && *stack != get_max(stack))
 			return (*stack = saver, 1);
 		*stack = (*stack)->next;
 	}
