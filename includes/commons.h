@@ -6,7 +6,7 @@
 /*   By: uwywijas <uwywijas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 15:50:45 by uwywijas          #+#    #+#             */
-/*   Updated: 2024/01/11 19:05:39 by uwywijas         ###   ########.fr       */
+/*   Updated: 2024/01/15 16:43:10 by uwywijas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,5 +29,6 @@ int		counter(t_list **stack);
 int		is_sorted(t_list **stack);
 void	triple_sorter(t_list **stack_a);
 int		get_stacks(t_list **stack_a);
+void	ft_freesplit(char **split);
 
 #endif

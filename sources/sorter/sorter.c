@@ -6,13 +6,13 @@
 /*   By: uwywijas <uwywijas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/19 16:32:59 by uwywijas          #+#    #+#             */
-/*   Updated: 2024/01/11 19:11:31 by uwywijas         ###   ########.fr       */
+/*   Updated: 2024/01/15 15:58:01 by uwywijas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/imports.h"
-#include "../includes/commons.h"
-#include "../includes/operations.h"
+#include "../../includes/imports.h"
+#include "../../includes/commons.h"
+#include "../../includes/operations.h"
 
 int	get_step(t_list **stack, int stacks)
 {

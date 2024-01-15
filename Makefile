@@ -46,6 +46,7 @@ SRCSB = $(addprefix bonus/sources/, $(SRCS_FILES_B))
 OBJSB = $(SRCSB:.c=.o)
 INCLS = includes/
 INCLSB = bonus/includes/
+NAMEB = checker
 
 #Extra variables
 RESET = \033[1;39m
@@ -81,7 +82,9 @@ fclean : clean
 
 re : fclean all
 
-bonus : $(OBJSB)
+bonus : $(NAMEB)
+
+$(NAMEB) : $(OBJSB)
 	@make bonus -C $(LIBFTB) --no-print-directory
 	@$(CC) $(CFLAGS) $(OBJSB) -o checker $(LIBFTB)/libft.a
 	@echo "$(BOLD)[$(NAME)] Makefile : $(GREEN)Executable created successfully!$(RESET)"

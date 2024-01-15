@@ -6,13 +6,13 @@
 /*   By: uwywijas <uwywijas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 17:03:43 by uwywijas          #+#    #+#             */
-/*   Updated: 2024/01/11 18:17:05 by uwywijas         ###   ########.fr       */
+/*   Updated: 2024/01/15 15:58:15 by uwywijas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/imports.h"
-#include "../includes/commons.h"
-#include "../includes/operations.h"
+#include "../../includes/imports.h"
+#include "../../includes/commons.h"
+#include "../../includes/operations.h"
 
 int	get_app_pos(t_list **stack, t_list *item)
 {
