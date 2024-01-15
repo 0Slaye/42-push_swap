@@ -6,7 +6,7 @@
 /*   By: uwywijas <uwywijas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 15:38:26 by uwywijas          #+#    #+#             */
-/*   Updated: 2024/01/08 15:14:50 by uwywijas         ###   ########.fr       */
+/*   Updated: 2024/01/15 21:06:21 by uwywijas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ void	rrr(t_list **stack_a, t_list **stack_b)
 	t_list	*holder;
 	t_list	*prevlast;
 
+	if (counter(stack_a) <= 1 || counter(stack_b) <= 1)
+		return ;
 	holder = ft_lstlast(*stack_a);
 	prevlast = ft_lst_prevlast(*stack_a);
 	holder->next = *stack_a;

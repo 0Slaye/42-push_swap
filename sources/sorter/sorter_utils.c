@@ -6,7 +6,7 @@
 /*   By: uwywijas <uwywijas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 17:03:43 by uwywijas          #+#    #+#             */
-/*   Updated: 2024/01/15 15:58:15 by uwywijas         ###   ########.fr       */
+/*   Updated: 2024/01/15 21:27:20 by uwywijas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ t_list	*get_min(t_list **stack)
 	counter = INT_MAX;
 	while (*stack)
 	{
-		if ((*stack)->content < counter)
+		if ((*stack)->content <= counter)
 		{
 			counter = (*stack)->content;
 			result = *stack;
@@ -82,7 +82,7 @@ t_list	*get_max(t_list **stack)
 	counter = INT_MIN;
 	while (*stack)
 	{
-		if ((*stack)->content > counter)
+		if ((*stack)->content >= counter)
 		{
 			counter = (*stack)->content;
 			result = *stack;

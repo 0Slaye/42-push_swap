@@ -6,7 +6,7 @@
 /*   By: uwywijas <uwywijas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/19 16:32:59 by uwywijas          #+#    #+#             */
-/*   Updated: 2024/01/12 18:07:05 by uwywijas         ###   ########.fr       */
+/*   Updated: 2024/01/15 21:03:35 by uwywijas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ int	is_operation(t_list **stack_a, t_list **stack_b, char *value)
 	else if (ft_strncmp(value, "sa\n", 3) == 0)
 		sa(stack_a);
 	else if (ft_strncmp(value, "sb\n", 3) == 0)
-		sb(stack_a);
+		sb(stack_b);
 	else if (ft_strncmp(value, "ss\n", 3) == 0)
 		ss(stack_a, stack_b);
 	else
