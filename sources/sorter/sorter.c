@@ -6,7 +6,7 @@
 /*   By: uwywijas <uwywijas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/19 16:32:59 by uwywijas          #+#    #+#             */
-/*   Updated: 2024/01/15 21:27:45 by uwywijas         ###   ########.fr       */
+/*   Updated: 2024/01/17 16:35:49 by uwywijas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,6 +114,8 @@ void	sorter(t_list **stack_a, t_list **stack_b)
 		return ;
 	if (counter(stack_a) == 3)
 		return (triple_sorter(stack_a));
+	if (counter(stack_a) == 5)
+		return (sorter_five(stack_a, stack_b));
 	small_sorter(stack_a, stack_b, holder, stacks);
 	while (*stack_b)
 	{
