@@ -34,7 +34,7 @@ t_list	*get_max_n1(t_list **stack)
 	counter = INT_MIN;
 	while (*stack)
 	{
-		if ((*stack)->content > counter && *stack != holder)
+		if ((*stack)->content >= counter && *stack != holder)
 		{
 			counter = (*stack)->content;
 			result = *stack;
