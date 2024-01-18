@@ -6,7 +6,7 @@
 /*   By: uwywijas <uwywijas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 15:50:45 by uwywijas          #+#    #+#             */
-/*   Updated: 2024/01/17 16:48:39 by uwywijas         ###   ########.fr       */
+/*   Updated: 2024/01/18 11:03:42 by uwywijas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,13 @@
 # define INT_MIN -2147483648
 
 # include "imports.h"
+
+typedef struct s_max
+{
+	t_list	*m1;
+	t_list	*m2;
+	t_list	*m3;
+}	t_max;
 
 int		get_tab_length(char **tab);
 int		is_tab_valid(char **tab, int length);
@@ -32,5 +39,6 @@ int		get_stacks(t_list **stack_a);
 void	ft_freesplit(char **split);
 t_list	*get_max_n1(t_list **stack);
 void	sorter_five(t_list **stack_a, t_list **stack_b);
+t_list	*get_max_n2(t_list **stack);
 
 #endif

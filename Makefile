@@ -21,8 +21,7 @@ SRCS_FILES =	main.c \
 				operations/rrr.c \
 				sorter/sorter.c \
 				sorter/sorter_utils.c \
-				sorter/sorter_utils_bis.c \
-				sorter/sorter_five.c
+				sorter/sorter_utils_bis.c
 SRCS = $(addprefix sources/, $(SRCS_FILES))
 OBJS = $(SRCS:.c=.o)
 LIBFTB = bonus/sources/libft

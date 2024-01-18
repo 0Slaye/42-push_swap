@@ -6,7 +6,7 @@
 /*   By: uwywijas <uwywijas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/19 16:32:59 by uwywijas          #+#    #+#             */
-/*   Updated: 2024/01/17 16:35:49 by uwywijas         ###   ########.fr       */
+/*   Updated: 2024/01/18 11:06:22 by uwywijas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,46 +22,23 @@ int	get_step(t_list **stack, int stacks)
 	return ((get_max(stack)->content + get_min(stack)->content) / stacks);
 }
 
-t_list	*get_max_n1(t_list **stack)
-{
-	t_list	*holder;
-	t_list	*result;
-	t_list	*saver;
-	int		counter;
-
-	holder = get_max(stack);
-	saver = *stack;
-	counter = INT_MIN;
-	while (*stack)
-	{
-		if ((*stack)->content >= counter && *stack != holder)
-		{
-			counter = (*stack)->content;
-			result = *stack;
-		}
-		*stack = (*stack)->next;
-	}
-	*stack = saver;
-	return (result);
-}
-
-void	small_sorter(t_list **a, t_list **b, t_list *holder, int n)
+void	small_sorter(t_list **a, t_list **b, t_max m)
 {
 	int		p;
 	int		s;
 
-	p = get_step(a, n);
+	p = get_step(a, get_stacks(a));
 	s = get_min(a)->content + p;
-	while (counter(a) != 1)
+	while (counter(a) != 3)
 	{
-		while (lst_huv(a, holder, s) && counter(a) != 1)
+		while (lst_huv(a, m.m1, s) && counter(a) != 3)
 		{
-			if ((*a)->content <= s && *a != holder)
+			if ((*a)->content <= s && *a != m.m1 && *a != m.m2 && *a != m.m3)
 			{
 				pb(a, b);
 				if ((*b)->content < s - (p / 2) && (*b)->next)
 				{
-					if ((*a)->next && !((*a)->content <= s && *a != holder))
+					if ((*a)->next && !((*a)->content <= s && *a != m.m1))
 						rr(a, b);
 					else
 						rb(b);
@@ -106,17 +83,21 @@ void	big_sorter(t_list **a, t_list **b, t_list *m1, t_list *m2)
 void	sorter(t_list **stack_a, t_list **stack_b)
 {
 	t_list	*holder;
+	t_max	maxs;
 	int		stacks;
 
+	maxs.m1 = get_max(stack_a);
+	maxs.m2 = get_max_n1(stack_a);
+	maxs.m3 = get_max_n2(stack_a);
 	holder = get_max(stack_a);
 	stacks = get_stacks(stack_a);
 	if (is_sorted(stack_a))
 		return ;
 	if (counter(stack_a) == 3)
 		return (triple_sorter(stack_a));
-	if (counter(stack_a) == 5)
-		return (sorter_five(stack_a, stack_b));
-	small_sorter(stack_a, stack_b, holder, stacks);
+	small_sorter(stack_a, stack_b, maxs);
+	if (!is_sorted(stack_a))
+		triple_sorter(stack_a);
 	while (*stack_b)
 	{
 		holder = get_max(stack_b);
